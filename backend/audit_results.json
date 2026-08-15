@@ -1,0 +1,237 @@
+{
+    "1_english": {
+        "status": 200,
+        "data": {
+            "risk_level": "Suspicious",
+            "risk_score": 5,
+            "language": "English / Hinglish",
+            "signals": [
+                "account_threat",
+                "kyc_request",
+                "urgency"
+            ],
+            "explanation": "The message claims that an account may be suspended or blocked. The message requests KYC or account verification. The message uses urgent language that pressures the user to act quickly.",
+            "recommended_actions": [
+                "Verify account status through the official app or official website."
+            ],
+            "url_analysis": null
+        }
+    },
+    "2_hindi": {
+        "status": 200,
+        "data": {
+            "risk_level": "Suspicious",
+            "risk_score": 5,
+            "language": "Hindi (Devanagari)",
+            "signals": [
+                "account_threat",
+                "kyc_request",
+                "urgency"
+            ],
+            "explanation": "The message claims that an account may be suspended or blocked. The message requests KYC or account verification. The message uses urgent language that pressures the user to act quickly.",
+            "recommended_actions": [
+                "Verify account status through the official app or official website."
+            ],
+            "url_analysis": null
+        }
+    },
+    "3_hinglish": {
+        "status": 200,
+        "data": {
+            "risk_level": "Suspicious",
+            "risk_score": 5,
+            "language": "English / Hinglish",
+            "signals": [
+                "account_threat",
+                "kyc_request",
+                "urgency"
+            ],
+            "explanation": "The message claims that an account may be suspended or blocked. The message requests KYC or account verification. The message uses urgent language that pressures the user to act quickly.",
+            "recommended_actions": [
+                "Verify account status through the official app or official website."
+            ],
+            "url_analysis": null
+        }
+    },
+    "4_mixed": {
+        "status": 200,
+        "data": {
+            "risk_level": "Lower Risk",
+            "risk_score": 2,
+            "language": "English / Hinglish",
+            "signals": [
+                "account_threat"
+            ],
+            "explanation": "The message claims that an account may be suspended or blocked.",
+            "recommended_actions": [
+                "Verify account status through the official app or official website."
+            ],
+            "url_analysis": null
+        }
+    },
+    "5_obfuscated": {
+        "status": 200,
+        "data": {
+            "risk_level": "Suspicious",
+            "risk_score": 3,
+            "language": "English / Hinglish",
+            "signals": [
+                "account_threat",
+                "urgency"
+            ],
+            "explanation": "The message claims that an account may be suspended or blocked. The message uses urgent language that pressures the user to act quickly.",
+            "recommended_actions": [
+                "Verify account status through the official app or official website."
+            ],
+            "url_analysis": null
+        }
+    },
+    "6_shortened_url": {
+        "status": 200,
+        "data": {
+            "risk_level": "Lower Risk",
+            "risk_score": 2,
+            "language": "English / Hinglish",
+            "signals": [
+                "shortened_url"
+            ],
+            "explanation": "The link uses a URL shortener, which hides the destination URL and raises the risk.",
+            "recommended_actions": [
+                "Do not open the link until the destination is independently verified."
+            ],
+            "url_analysis": {
+                "urls_found": 1,
+                "details": [
+                    {
+                        "url": "https://bit.ly/update",
+                        "is_shortened": true,
+                        "scheme": "https",
+                        "hostname": "bit.ly",
+                        "is_ip": false,
+                        "length": 21
+                    }
+                ]
+            }
+        }
+    },
+    "7_ip_url": {
+        "status": 200,
+        "data": {
+            "risk_level": "High Risk",
+            "risk_score": 7,
+            "language": "English / Hinglish",
+            "signals": [
+                "credential_request",
+                "http_scheme",
+                "ip_hostname"
+            ],
+            "explanation": "The message asks for credentials such as a password, PIN or OTP. The link uses HTTP instead of HTTPS, meaning the connection is not encrypted. The link uses an IP address instead of a standard domain name, which is a strong risk signal.",
+            "recommended_actions": [
+                "Do not open the link until the destination is independently verified.",
+                "Do not provide passwords, PINs or OTPs.",
+                "Do not provide sensitive information or follow the suspicious link."
+            ],
+            "url_analysis": {
+                "urls_found": 1,
+                "details": [
+                    {
+                        "url": "http://192.168.1.10/login",
+                        "is_shortened": false,
+                        "scheme": "http",
+                        "hostname": "192.168.1.10",
+                        "is_ip": true,
+                        "length": 25
+                    }
+                ]
+            }
+        }
+    },
+    "8_benign": {
+        "status": 200,
+        "data": {
+            "risk_level": "Lower Risk",
+            "risk_score": 0,
+            "language": "English / Hinglish",
+            "signals": [],
+            "explanation": "No specific phishing risk signals were detected in this message.",
+            "recommended_actions": [
+                "No immediate action required, but always remain cautious."
+            ],
+            "url_analysis": null
+        }
+    },
+    "9_benign_url": {
+        "status": 200,
+        "data": {
+            "risk_level": "Lower Risk",
+            "risk_score": 0,
+            "language": "English / Hinglish",
+            "signals": [],
+            "explanation": "No specific phishing risk signals were detected in this message.",
+            "recommended_actions": [
+                "No immediate action required, but always remain cautious."
+            ],
+            "url_analysis": {
+                "urls_found": 1,
+                "details": [
+                    {
+                        "url": "https://example.com",
+                        "is_shortened": false,
+                        "scheme": "https",
+                        "hostname": "example.com",
+                        "is_ip": false,
+                        "length": 19
+                    }
+                ]
+            }
+        }
+    },
+    "10_multiple_urls": {
+        "status": 200,
+        "data": {
+            "risk_level": "High Risk",
+            "risk_score": 7,
+            "language": "English / Hinglish",
+            "signals": [
+                "credential_request",
+                "http_scheme",
+                "ip_hostname"
+            ],
+            "explanation": "The message asks for credentials such as a password, PIN or OTP. The link uses HTTP instead of HTTPS, meaning the connection is not encrypted. The link uses an IP address instead of a standard domain name, which is a strong risk signal.",
+            "recommended_actions": [
+                "Do not open the link until the destination is independently verified.",
+                "Do not provide passwords, PINs or OTPs.",
+                "Do not provide sensitive information or follow the suspicious link."
+            ],
+            "url_analysis": {
+                "urls_found": 2,
+                "details": [
+                    {
+                        "url": "https://example.com",
+                        "is_shortened": false,
+                        "scheme": "https",
+                        "hostname": "example.com",
+                        "is_ip": false,
+                        "length": 19
+                    },
+                    {
+                        "url": "http://192.168.1.10/login",
+                        "is_shortened": false,
+                        "scheme": "http",
+                        "hostname": "192.168.1.10",
+                        "is_ip": true,
+                        "length": 25
+                    }
+                ]
+            }
+        }
+    },
+    "11_empty": {
+        "status": 400,
+        "error": "{\"detail\":\"Input text cannot be empty.\"}"
+    },
+    "12_whitespace": {
+        "status": 400,
+        "error": "{\"detail\":\"Input text cannot be empty.\"}"
+    }
+}

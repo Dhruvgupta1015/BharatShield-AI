@@ -1,0 +1,52 @@
+/*
+ * BharatShield AI — Global Styles
+ * Tailwind CSS will be added once installed.
+ * These are base styles for the application.
+ */
+
+@import "tailwindcss";
+
+/* Custom theme layer for BharatShield AI color palette */
+@theme {
+  --color-bharat-900: #0a0e1a;
+  --color-bharat-800: #111827;
+  --color-bharat-700: #1a2235;
+  --color-bharat-600: #243049;
+  --color-bharat-500: #334155;
+  --color-bharat-400: #64748b;
+  --color-bharat-300: #94a3b8;
+
+  --color-accent-primary: #3b82f6;
+  --color-accent-hover: #2563eb;
+  --color-accent-glow: rgba(59, 130, 246, 0.25);
+
+  --color-saffron: #f97316;
+  --color-saffron-glow: rgba(249, 115, 22, 0.2);
+
+  --color-risk-low: #22c55e;
+  --color-risk-medium: #eab308;
+  --color-risk-high: #ef4444;
+
+  --font-family-sans: "Inter", system-ui, -apple-system, sans-serif;
+}
+
+/* Base resets */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family-sans);
+  background-color: var(--color-bharat-900);
+  color: #e2e8f0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+#root {
+  min-height: 100vh;
+}
