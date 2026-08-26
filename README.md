@@ -15,29 +15,24 @@ BharatShield AI detects phishing risks in **Hindi**, **English**, and **Hinglish
 
 Phishing attacks increasingly target regional-language speakers using SMS, WhatsApp, and email in Hindi and Hinglish. Existing phishing-detection tools are primarily trained on English-only content and fail to detect threats written in Devanagari, transliterated Hindi, or code-mixed text. BharatShield AI addresses this gap.
 
-## Current Implementation
+## Current Implementation (Phase 2 MVP)
 
-The project has completed Phase 1 through 4A, establishing the full MVP pipeline:
+The project has achieved its **Phase 2 MVP** (Hackathon Demo Candidate) milestone:
 
-- **React/Vite frontend**: User-facing UI to input suspicious messages.
-- **FastAPI backend**: API for handling detection.
-- **Frontend/backend integration**: Fully wired input/output.
-- **Deterministic NLP baseline**: Regex and heuristic-based text classification.
-- **URL analysis baseline**: URL extraction and basic risk heuristics.
-- **Risk Fusion**: Cumulative scoring yielding Lower Risk (0-2), Suspicious (3-5), or High Risk (6+).
-- **Explainable risk signals**: Clear explanations of triggered rules.
-- **Actionable guidance**: Step-by-step user recommendations based on risk.
-- **ML dataset/evaluation infrastructure**: Pydantic schemas, deduplication, and isolated evaluation pipelines.
-- **Dataset v1**: Curated SMS phishing baseline (UCI).
-- **TF-IDF + Logistic Regression experiment**: Classical ML benchmark compared against deterministic rules.
+- **Frontend**: Redesigned React/Vite UI with dynamic risk visualization, URL intelligence panels, and AI classification confidence.
+- **Backend**: FastAPI pipeline handling hybrid detection.
+- **Hybrid Fusion Engine**: Combines rule-based NLP signals (multilingual), URL analysis, and ML inference (English-dominant) into a unified risk score (0-100).
+- **ML Integration**: TF-IDF + Logistic Regression model is fully serialized and running in the live pipeline.
+- **Explainable risk signals**: Clear explanations of triggered rules and human-readable advice.
+- **Graceful Fallbacks**: The system falls back to robust deterministic rules if ML is unavailable or if the text is out-of-distribution (e.g. Devanagari Hindi).
 
 ## IMPORTANT LIMITATIONS
 
 This is an early-stage hackathon prototype. Please note:
-- The current `dataset_v1` is **English-dominant**.
-- Naturally occurring **Hindi and Hinglish samples are not yet established** due to a lack of ethically-sourced public datasets.
-- The UCI SMS spam → phishing mapping is a **pragmatic proxy mapping**.
-- **Multilingual ML performance is NOT yet established** or proven by the current baseline.
+- The current ML dataset (`dataset_v1`) is **English-dominant**.
+- Naturally occurring **Hindi and Hinglish samples are not yet established** for ML training. The system relies on its multilingual deterministic rule-based engine to detect threats in these languages.
+- The UCI SMS spam ➔ phishing mapping is a **pragmatic proxy mapping**.
+- **Multilingual ML performance is NOT yet established**. We do not falsely claim AI accuracy for Hindi/Hinglish.
 - **Final production-grade detection is NOT being claimed.** We do not guarantee protection or claim to have a final multilingual ML model.
 
 ## Architecture
@@ -49,13 +44,19 @@ REACT + VITE UI
       ↓
 FASTAPI BACKEND
       ↓
- ┌───────────────┬───────────────┐
- ↓               ↓               ↓
-NLP ENGINE    URL ENGINE    RISK FUSION
-                                 ↓
-                          EXPLAIN + GUIDE
-                                 ↓
-                 LOWER RISK / SUSPICIOUS / HIGH RISK
+ ┌─────────────────────────────────────────────────────────┐
+ │               LANGUAGE DETECTION ENGINE                 │
+ │                           ↓                             │
+ │       ML INFERENCE        NLP ENGINE       URL ENGINE   │
+ │       (English only)      (Multilingual)   (Structural) │
+ │                           ↓                             │
+ │                  HYBRID RISK FUSION                     │
+ │                 (0-100 Normalization)                   │
+ └─────────────────────────────────────────────────────────┘
+      ↓
+EXPLAIN + GUIDE
+      ↓
+LOW RISK / SUSPICIOUS / HIGH RISK
 ```
 
 ## Tech Stack
