@@ -1,0 +1,30 @@
+[
+  {
+    "scenario": "01_hinglish_phishing",
+    "verdict": "Suspicious",
+    "score": "52",
+    "language": "English / Hinglish",
+    "ml_result": "N/A"
+  },
+  {
+    "scenario": "02_english_ml_phishing_final",
+    "verdict": "High Risk",
+    "score": "70",
+    "language": "English / Hinglish",
+    "ml_result": "N/A"
+  },
+  {
+    "scenario": "03_url_intelligence",
+    "verdict": "High Risk",
+    "score": "82",
+    "language": "English / Hinglish",
+    "ml_result": "N/A"
+  },
+  {
+    "scenario": "04_low_risk_benign",
+    "verdict": "Low Risk",
+    "score": "0",
+    "language": "English / Hinglish",
+    "ml_result": "N/A"
+  }
+]
